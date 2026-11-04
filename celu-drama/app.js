@@ -1,6 +1,6 @@
 // Personalizá estos datos para tu taller.
 const CONFIG = {
-  whatsappNumber: '5491155775741', // Formato internacional, solo números.
+  whatsappNumber: '+5491155775741', // Formato internacional, solo números.
   location: 'Parque Avellaneda y alrededores',
   businessName: 'Celu Dramático'
 };
