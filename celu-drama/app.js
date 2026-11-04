@@ -1,6 +1,6 @@
 // Personalizá estos datos para tu taller.
 const CONFIG = {
-  whatsappNumber: '+5491155775741', // Formato internacional, solo números.
+  whatsappNumber: '5491155775741', // Formato internacional, solo números.
   location: 'Parque Avellaneda y alrededores',
   businessName: 'Celu Dramático'
 };
@@ -230,7 +230,7 @@ function renderStep() {
   const steps = getSteps();
   const step = steps[currentStep];
 
-  stepCounter.textContent = `Pregunta \({currentStep + 1} de \){steps.length}`;
+  stepCounter.textContent = `Pregunta ${currentStep + 1} de ${steps.length}`;
   progressFill.style.width = `${((currentStep + 1) / steps.length) * 100}%`;
   backButton.hidden = currentStep === 0;
   nextButton.disabled = !answers[step.id];
@@ -594,7 +594,9 @@ function createWhatsappLink() {
   ];
 
   const message = lines.join('\n');
-  return `https://wa.me/\({CONFIG.whatsappNumber}?text=\){encodeURIComponent(message)}`;
+
+  // Enlace corregido: número sin "+" ni espacios y mensaje codificado.
+  return `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
 }
 
 function showResult() {
@@ -643,8 +645,9 @@ document.querySelector('#restart-button').addEventListener('click', () => {
 const generalMessage = encodeURIComponent(
   'Hola, quiero hacer una consulta técnica por mi celular.'
 );
+
 const generalLink =
-  `https://wa.me/\({CONFIG.whatsappNumber}?text=\){generalMessage}`;
+  `https://wa.me/${CONFIG.whatsappNumber}?text=${generalMessage}`;
 
 document.querySelector('#footer-whatsapp').href = generalLink;
 
